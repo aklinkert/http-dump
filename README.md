@@ -11,4 +11,4 @@ Logs http headers to stdout. Can be run as a docker container from `scalify/http
 ## License
 
     MIT License
-    Copyright (c) 2017 KalypsoCloud
+    Copyright (c) 2017 Scalify GmbH
