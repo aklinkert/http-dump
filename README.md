@@ -4,7 +4,7 @@ Logs http headers to stdout. Can be run as a docker container from `scalify/http
 
 ## usage
 
-    docker run \
+    docker run --rm \
         -p "8080:8080" \
         -it scalify/http-dump
 

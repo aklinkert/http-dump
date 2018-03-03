@@ -8,4 +8,4 @@ FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 COPY --from=builder /go/src/github.com/scalify/http-dump/bin/load-test .
 RUN chmod +x load-test
-CMD ["./load-test"]
+ENTRYPOINT ["./load-test"]

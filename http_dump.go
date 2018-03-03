@@ -10,6 +10,7 @@ import (
 
 var (
 	port = flag.Int("port", 8080, "Port")
+	verbose = flag.Bool("verbose", false, "Print all reqests to stdout")
 )
 
 func main() {
@@ -24,8 +25,12 @@ func main() {
 func handle (w http.ResponseWriter, r *http.Request) {
 		content, err := httputil.DumpRequest(r, true)
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
 			return
+		}
+
+		if *verbose == true {
+			log.Printf("Request from %v: %s", r.RemoteAddr, content)
 		}
 
 		w.Write(content)
