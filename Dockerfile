@@ -6,6 +6,6 @@ RUN CGO_ENABLED=0 go build -a -ldflags '-s' -installsuffix cgo -o bin/http-dump 
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
-COPY --from=builder /go/src/github.com/scalify/http-dump/bin/http-dump .
-RUN chmod +x http-dump
-ENTRYPOINT ["./http-dump"]
+COPY --from=builder /go/src/github.com/scalify/http-dump/bin/http-dump /bin/http-dump
+RUN chmod +x /bin/http-dump
+ENTRYPOINT ["/bin/http-dump"]
